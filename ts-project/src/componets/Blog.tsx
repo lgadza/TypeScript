@@ -1,16 +1,27 @@
 import { Col, Card } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Blog } from "./types";
-import { compareAsc, format } from "date-fns";
+import { format } from "date-fns";
+import { Link } from "react-router-dom";
+import { useState } from "react";
 
 interface BlogProps {
   blog: Blog;
 }
 
 const BlogDisplay = ({ blog }: BlogProps) => {
+  const [selected, setSelected] = useState(false);
+
+  const handleClick = () => {
+    setSelected(true);
+  };
   return (
-    <Col md={3} className="mt-5">
-      <Card>
+    <Link to={`/details/${blog.id}`}>
+      <Card
+        onClick={handleClick}
+        style={{ border: selected ? "3px solid red" : "none" }}
+        key={blog.id}
+      >
         <Card.Img variant="top" src={blog.imageUrl} />
         <Card.Body>
           <Card.Title>{blog.title}</Card.Title>
@@ -31,7 +42,7 @@ const BlogDisplay = ({ blog }: BlogProps) => {
           <Card.Link href={blog.url}>Read More</Card.Link>
         </Card.Body>
       </Card>
-    </Col>
+    </Link>
   );
 };
 export default BlogDisplay;
