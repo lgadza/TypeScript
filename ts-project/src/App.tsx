@@ -6,14 +6,16 @@ import MyNavBar from "./componets/MyNavBar";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import BlogList from "./BlogList";
+import Details from "./componets/Test";
 // import BlogDisplay from "./componets/Blog";
-import Details from "./componets/Details";
+// import Details from "./componets/Details";
+// import BasicExample from "./componets/Test";
 function App() {
   return (
     <BrowserRouter>
       <Container fluid>
         <MyNavBar />
-        {/* <Details /> */}
+        {/* <BasicExample /> */}
       </Container>
 
       <Container>
